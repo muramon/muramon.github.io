@@ -1,5 +1,6 @@
 ## A Deep Relevance Matching Model for Ad-hoc Retrieval
 
+> Jiafeng Guo, Yixing Fan, Qingyao Ai, and W. Bruce Croft. 2016. A Deep Relevance Matching Model for Ad-hoc Retrieval. In CIKM.
 ---
 
 ### 概要
