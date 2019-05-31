@@ -154,4 +154,4 @@ Ad-hoc retrievalにおけるtermの重要性を示す重要なシグナルは，
 - relevanceマッチングにおける3つの要素を明示的に扱うことによって，ad-hoc検索のための新しいDeep relevanceマッチングモデルを提案する．
 - 2つの代表的なベンチマークデータセットの実験結果は，このモデルが従来の検索モデルや最新のディープマッチングモデルよりも著しく優れていることを示している．
 
-[戻る](https://muramon.github.io/research-blog/)
+[戻る](https://muramon.github.io)
