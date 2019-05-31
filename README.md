@@ -1,5 +1,7 @@
 # Naoki Muramoto's Research Blog
 
+**名前** : 村本尚生 (Naoki Muramoto)
+
 **所属** : 筑波大学大学院　図書館情報メディア研究科 于研究室 M1
 
 - 研究テーマ
