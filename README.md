@@ -10,4 +10,4 @@
   -
 
 - 輪読会資料
-  - [DRMM](https://muramon.github.io/research-blog/reading/drmm)
+  - [DRMM](https://muramon.github.io/reading/drmm)
