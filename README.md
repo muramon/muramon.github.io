@@ -2,7 +2,7 @@
 
 **名前** : 村本尚生 (Naoki Muramoto)
 
-**所属** : 筑波大学大学院　図書館情報メディア研究科 于研究室 M1
+**所属** : 筑波大学大学院 図書館情報メディア研究科 (Graduate School of Library, Information and Media Studies, University of Tsukuba) 于研究室 M1
 
 - 研究テーマ
   - 画像キャプション生成
