@@ -2,10 +2,7 @@
 
 ---
 
-- [Jiafeng Guo, Yixing Fan, Qingyao Ai, W. Bruce Croft. "A Deep Relevance Matching Model for Ad-hoc Retrieval". Proceedings of the 25th ACM International on Conference on Information and Knowledge Management. 2016, p.55-64.](http://www.bigdatalab.ac.cn/~gjf/papers/2016/CIKM2016a_guo.pdf)
----
-
-[code](https://github.com/muramon/research-blog/blob/master/reading/drmm.ipynb)
+###### [Jiafeng Guo, Yixing Fan, Qingyao Ai, W. Bruce Croft. "A Deep Relevance Matching Model for Ad-hoc Retrieval". Proceedings of the 25th ACM International on Conference on Information and Knowledge Management. 2016, p.55-64.](http://www.bigdatalab.ac.cn/~gjf/papers/2016/CIKM2016a_guo.pdf)
 
 ---
 ### 概要
@@ -64,7 +61,9 @@ Deep matching modelは2つのタイプに分類される
 
 ![](./images/drmm-model.png)
 
-3つの要素を明示的に扱うことにより，Novel Deep マッチングモデルを提案する．
+[code](https://github.com/muramon/research-blog/blob/master/reading/drmm.ipynb)
+
+Relevance Matching 特有の3つの要素を明示的に扱うことにより，Novel Deep マッチングモデルを提案する．
 
 - まず，term embeddings に基づくクエリとドキュメントのそれぞれのterms ペア間のlocal interactionを作る．
 - それぞれのクエリについて，variable-length local interaction → fixed-length matching histogram
@@ -92,14 +91,14 @@ Local interactionの異なるレベルの絶対数ではなく相対値に焦点
 範囲を狭めるため，およびこのモデルが乗算の関係をより簡単に学習できるようにするため，各ビンのカウント値に対して対数を適用する．
 
 ---
-- Feed forward Matching Network
+### Feed forward Matching Network
 
 異なる位置ではなく，異なるレベルのinteraction信号から階層的マッチングパターンを抽出することを目的としている．
 - Term Gating Network
 
 クエリtermレベルで共同ディープアーキテクチャを採用している． このようにして，我々のモデルはクエリtermの重要性を明示的にモデル化することができる．これはterm gating networkを使用することによって達成され，それはそのクエリtermに関する関連性スコアが最終的な関連性スコアにどれだけ寄与するかを制御する各クエリtermについての集約重みを生成する． 具体的には，ゲート機能としてsoftmax機能を使用する．
 
-- Term vectors (TV)
+### Term vectors (TV)
 
 ゲーティング関数の入力としてクエリtermベクトルを使用する．
 - Inverse Document Frequency (IDF)
@@ -154,3 +153,5 @@ Ad-hoc retrievalにおけるtermの重要性を示す重要なシグナルは，
 
 - relevanceマッチングにおける3つの要素を明示的に扱うことによって，ad-hoc検索のための新しいDeep relevanceマッチングモデルを提案する．
 - 2つの代表的なベンチマークデータセットの実験結果は，このモデルが従来の検索モデルや最新のディープマッチングモデルよりも著しく優れていることを示している．
+
+[戻る](https://muramon.github.io/research-blog/)

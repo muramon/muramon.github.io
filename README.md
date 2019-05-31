@@ -6,7 +6,8 @@
   - 画像キャプション生成
   - ランキング学習
 
-- 発表
+- 論文
+  - 
 
 - 輪読会資料
   - [DRMM](https://muramon.github.io/research-blog/reading/drmm)
