@@ -1,8 +1,13 @@
 ## A Deep Relevance Matching Model for Ad-hoc Retrieval
 
-> Jiafeng Guo, Yixing Fan, Qingyao Ai, and W. Bruce Croft. 2016. A Deep Relevance Matching Model for Ad-hoc Retrieval. In CIKM.
 ---
 
+- [Jiafeng Guo, Yixing Fan, Qingyao Ai, W. Bruce Croft. "A Deep Relevance Matching Model for Ad-hoc Retrieval". Proceedings of the 25th ACM International on Conference on Information and Knowledge Management. 2016, p.55-64.](http://www.bigdatalab.ac.cn/~gjf/papers/2016/CIKM2016a_guo.pdf)
+---
+
+[code](https://github.com/muramon/research-blog/blob/master/reading/drmm.ipynb)
+
+---
 ### 概要
 
 - Deep NN は computer vision や NLPタスクで大きな成果．
@@ -29,19 +34,30 @@ Deep matching modelは2つのタイプに分類される
 ---
 ### Semantic VS Relevance
 
-- Semantic Matching
+#### Semantic Matching
+> paraphrase identification, QA, automatching signals　など
 
 2つのtext間の意味関係を推測する
   - Similarity matching signals
-  - Compositional meaning
-  - Global matching requirement
+  > 単語・フレーズ＆文間の意味的な類似性を捉えることは重要
 
-- Relevance Matching
+  - Compositional meaning
+  > 文法構造に基づく分の構成的意味を使用する方が有利
+
+  - Global matching requirement
+  > 2つのぶんの全体の意味が同じであれば，言い換えと見なせる
+
+#### Relevance Matching
 
 クエリとドキュメントの関連性を推測する
   - Exact matching signals
+  > 現代のサーチエンジンにおけるIndexingのために，文書内のtermとクエリ内のtermの正確な一致は依然として最重要
+
   - Query term importance
+  > クエリは短いキーワードからなるため，用語の重要性を考慮に入れるのか重要
+
   - Diverse matching requirement
+  > 関連性のマッチングは，関連文書へどの部分でも発生する可能性があり，全体をクエリに関連させる必要はない
 
 ---
 ### Deep Relevance Matching Model
@@ -122,8 +138,14 @@ Ad-hoc retrievalにおけるtermの重要性を示す重要なシグナルは，
 ![](./images/drmm-results-table.png)
 
 - 提案されたDRMMsについて
+
 1. NH-based < CH-based < LCH-based
+  - NH-basedはnormalization後にドキュメントの長さ情報を失ってしまう
+  - LCH-basedは，Deep Neural Networkは，乗法関係の学習に役立つ範囲を狭くした非線型変換による入力信号から恩恵を受けることができる
+
 1. TV < IDF
+  - term vectorsはterm importanceについて十分な情報を含んでいない
+  - term gating network(TGN)はFFより多くのパラメータがあるのて，TVを使うとTGNによって学習が支配される
 
 - Best performing DRMM : DRMM LCH × IDF
 
