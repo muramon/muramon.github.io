@@ -11,6 +11,9 @@
 - 論文
   - 村本尚生, 于海涛. "ヒントワードを活用した画像キャプションの自動生成". 情報知識学会誌. 2019, p.153-158.
 
-- 輪読会資料
+- ブログ
   - [DRMM](https://muramon.github.io/reading/drmm)
   > 2019/05/31
+
+  - [RankNet再開発](https://muramon.github.io/reading/ranknet-develop.html)
+  > 2019/07/05
