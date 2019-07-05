@@ -1,13 +1,13 @@
-## RankNet再開発ブログ
+# RankNet再開発ブログ
 
 RankNetの再開発した際に，気づいた注意すべき点についてまとめます．
 尚，RankNetは"From RankNet to LambdaRank to LambdaMART: An Overview"[1]に基づきます．
 
-### RankNetについて
+## RankNetについて
 
 まず，RankNetがどのようなものかここで紹介します．
 
-#### RankNet訓練方法
+### RankNet訓練方法
 
 訓練データはクエリによって分割されている．RankNetは入力の特徴ベクトル$x \in \mathscr{R}^{n}$を$f(x)$にマップします．
 
@@ -65,9 +65,72 @@ row_inds, col_inds = np.triu_indices(batch_ranking.size()[0], k=1)
 si_sj = pred_diff[row_inds, col_inds] #上三角s_i - s_j 行列
 ```
 
+si_sjを用いてコスト関数を計算します．
 
+## モデルの構築
 
- ## References
+今回の実装ではPyTorchを用いました．PyTorchでモデルを定義する方法はいくつかあります．
+
+nn.Moduleを継承して，構成要素をinitに定義して順方向をforwardに記載します．モデルに入力を渡せば自動的にforwardを実行してくれます．
+
+最もシンプルな方法は，
+
+```python
+class RankNet(nn.Module):
+    def __init__(self, input_dim, D_in, H1, H2):
+        super(RankNet, self).__init__()
+        self.l1 = nn.Linear(input_dim, D_in) #128
+        self.l2 = nn.Linear(D_in, H1)        #128, 64
+        self.l3 = nn.Linear(H1, H2)          #64, 32
+        self.l4 = nn.Linear(H2, 1)           #32, 1
+    def forward(self, batch_ranking=None, batch_stds_labels=None, sigma=1.0):
+        s_batch = self.l4(F.relu(self.l3(F.relu(self.l2(F.relu(self.l1(batch_ranking)))))))
+```
+
+です．活性化関数もinitに書くことができます．
+
+次に**Sequential**．必要な処理をひたすらnn.Sequentialに順番に渡していくだけなので簡単です．
+
+```python
+class RankNet(nn.Module):
+    def __init__(self, input_dim, D_in, H1, H2):
+        super(RankNet, self).__init__()
+        self.model = nn.Sequential(
+                    nn.Linear(input_dim, D_in),
+                    nn.ReLU(),
+                    nn.Linear(D_in, H1),
+                    nn.ReLU(),
+                    nn.Linear(H1, H2),
+                    nn.ReLU(),
+                    nn.Linear(H2, 1)
+    def forward(self, batch_ranking=None, batch_stds_labels=None, sigma=1.0):
+        s_batch = self.model(batch_ranking)
+```
+
+となります．
+
+layerを先にリストにまとめておいてnn.Sequentialに渡す方法もあります．
+
+```python
+layers = [nn.Linear(input_dim, D_in),
+          nn.ReLU(),
+          nn.Linear(D_in, H1),
+          nn.ReLU(),
+          nn.Linear(H1, H2),
+          nn.ReLU(),
+          nn.Linear(H2, 1)]
+
+class RankNet(nn.Module):
+    def __init__(self, layers):
+        super(RankNet, self).__init__()
+        self.model = nn.Sequential(*layers)
+    def forward(self, batch_ranking=None, batch_stds_labels=None, sigma=1.0):
+        s_batch = self.model(batch_ranking)
+```
+
+この方法を使うとモデルの構造を変えることが容易になります．
+
+## References
 
 [1] Christopher J.C. Burges . (2010) From RankNet to LambdaRank to LambdaMART: An Overview. Microsoft Research Technical Report MSR-TR-2010-82
 
