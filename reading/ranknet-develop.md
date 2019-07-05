@@ -72,3 +72,7 @@ si_sj = pred_diff[row_inds, col_inds] #上三角s_i - s_j 行列
 [1] Christopher J.C. Burges . (2010) From RankNet to LambdaRank to LambdaMART: An Overview. Microsoft Research Technical Report MSR-TR-2010-82
 
 [2] Tao Qin and Tie-Yan Liu. (2013) Introducing LETOR 4.0 datasets. arXiv:1306.2597. 
+
+
+
+[戻る](https://muramon.github.io)
