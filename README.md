@@ -1,3 +1,5 @@
+# 情報検索の研究に関するブログ
+
 ## 自己紹介
 **名前** : 村本尚生 (Naoki Muramoto)
 
@@ -14,5 +16,5 @@
   - [DRMMレビュー](https://muramon.github.io/reading/drmm.html)
   > 2019/05/31
 
-  - [RankNet再開発](https://muramon.github.io/reading/ranknet-develop.html)
+  - [RankNetをPyTorchで再開発](https://muramon.github.io/reading/ranknet-develop.html)
   > 2019/07/05
