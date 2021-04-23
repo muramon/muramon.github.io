@@ -14,6 +14,10 @@
   - [Naoki Muramoto and Hai-Tao Yu. 2020. Deep Metric Learning Based on Rank-sensitive Optimization of Top-k Precision. In Proceedings of the 29th ACM International Conference on Information and Knowledge Management (CIKM ’20), October 19–23, 2020.](https://dl.acm.org/doi/10.1145/3340531.3412142) [ACM SIGIR Student Travel Grant]
   - 村本尚生, 于海涛. "ヒントワードを活用した画像キャプションの自動生成". 情報知識学会誌. 2019, 29巻, 2号, p.153-158.
 
+## 受賞
+- ACM SIGIR Student Travel Grant 
+- 令和２年度図書館情報メディア研究科長表彰
+
 ## ブログ
   - [DRMMレビュー](https://muramon.github.io/reading/drmm.html)
   > 2019/05/31
